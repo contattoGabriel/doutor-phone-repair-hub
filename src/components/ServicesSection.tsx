@@ -1,6 +1,7 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { SmartphoneIcon, BatteryIcon, CameraIcon, SettingsIcon, Tool } from 'lucide-react';
+import { SmartphoneIcon, BatteryIcon, CameraIcon, SettingsIcon, Wrench } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -96,7 +97,7 @@ const ServicesSection: React.FC = () => {
     {
       title: "Outros Serviços",
       description: "Reparos de conectores, botões, alto-falantes e outros componentes de seu smartphone.",
-      icon: <Tool className="text-doctor h-6 w-6" />,
+      icon: <Wrench className="text-doctor h-6 w-6" />,
       delay: 0.5
     }
   ];
