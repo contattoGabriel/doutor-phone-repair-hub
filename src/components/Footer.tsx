@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { InstagramIcon, MessageSquareIcon } from 'lucide-react';
+import { InstagramIcon, MessageSquareIcon, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from '@/components/Logo';
 
@@ -45,7 +46,7 @@ const Footer: React.FC = () => {
             <h3 className="text-white font-medium text-lg mb-4">Contato</h3>
             <ul className="space-y-2">
               <li className="flex items-center gap-2">
-                <PhoneIcon className="h-4 w-4 text-doctor" />
+                <Phone className="h-4 w-4 text-doctor" />
                 <span className="text-white/60 text-sm">+55 31 9994-3225</span>
               </li>
               <li className="flex items-center gap-2">
