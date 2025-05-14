@@ -63,6 +63,11 @@ export default {
 					light: '#FF1A25',
 					muted: '#FFE5E7',
 				},
+				brand: {
+					blue: '#1EAEDB', // Bright blue added for the brand
+					darkBlue: '#0EA5E9',
+					lightBlue: '#33C3F0',
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

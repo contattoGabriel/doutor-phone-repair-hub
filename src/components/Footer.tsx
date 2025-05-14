@@ -1,7 +1,7 @@
-
 import React from 'react';
-import { PhoneIcon, InstagramIcon, MessageSquareIcon } from 'lucide-react';
+import { InstagramIcon, MessageSquareIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Logo from '@/components/Logo';
 
 const Footer: React.FC = () => {
   return (
@@ -9,12 +9,7 @@ const Footer: React.FC = () => {
       <div className="container px-4 mx-auto py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <PhoneIcon className="h-6 w-6 text-doctor" />
-              <span className="text-white font-display text-xl font-bold">
-                Doutor<span className="text-doctor">Phone</span>
-              </span>
-            </Link>
+            <Logo size="sm" className="mb-4" />
             <p className="text-white/60 text-sm">
               Especialistas em reparos de smartphones, com técnicos qualificados e peças originais.
             </p>
