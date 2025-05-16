@@ -1,15 +1,59 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { PhoneIcon, MailIcon, MessageSquareIcon, InstagramIcon, MapPinIcon } from 'lucide-react';
+import { useToast } from "@/hooks/use-toast";
 import gsap from 'gsap';
 
 const ContactSection: React.FC = () => {
+  const { toast } = useToast();
   const sectionRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const infoRef = useRef<HTMLDivElement>(null);
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    model: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Verificar se os campos obrigatórios estão preenchidos
+    if (!formData.name || !formData.phone || !formData.model) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos obrigatórios.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Formatar a mensagem para o WhatsApp
+    const message = `*Formulário de Contato - Doutor Phone*
+    
+*Nome:* ${formData.name}
+*E-mail:* ${formData.email}
+*Telefone:* ${formData.phone}
+*Modelo:* ${formData.model}
+*Mensagem:* ${formData.message}`;
+    
+    // Codificar a mensagem para URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Abrir o WhatsApp com a mensagem formatada
+    window.open(`https://wa.me/5531999432225?text=${encodedMessage}`, '_blank');
+  };
   
   useEffect(() => {
     const tl = gsap.timeline({
@@ -52,16 +96,19 @@ const ContactSection: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
-          <form ref={formRef} className="bg-zinc-900/50 p-6 md:p-8 rounded-lg border border-white/10">
+          <form ref={formRef} className="bg-zinc-900/50 p-6 md:p-8 rounded-lg border border-white/10" onSubmit={handleSubmit}>
             <div className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-white text-sm font-medium mb-1">
-                  Nome Completo
+                  Nome Completo <span className="text-doctor">*</span>
                 </label>
                 <Input 
                   id="name" 
                   placeholder="Seu nome" 
                   className="bg-black/50 border-white/20 text-white"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                 />
               </div>
               
@@ -74,28 +121,36 @@ const ContactSection: React.FC = () => {
                   type="email" 
                   placeholder="seu@email.com" 
                   className="bg-black/50 border-white/20 text-white"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </div>
               
               <div>
                 <label htmlFor="phone" className="block text-white text-sm font-medium mb-1">
-                  Telefone
+                  Telefone <span className="text-doctor">*</span>
                 </label>
                 <Input 
                   id="phone" 
                   placeholder="(00) 00000-0000" 
                   className="bg-black/50 border-white/20 text-white"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
                 />
               </div>
               
               <div>
                 <label htmlFor="model" className="block text-white text-sm font-medium mb-1">
-                  Modelo do Celular
+                  Modelo do Celular <span className="text-doctor">*</span>
                 </label>
                 <Input 
                   id="model" 
                   placeholder="Ex: iPhone 13, Samsung Galaxy S21" 
                   className="bg-black/50 border-white/20 text-white"
+                  value={formData.model}
+                  onChange={handleChange}
+                  required
                 />
               </div>
               
@@ -107,10 +162,12 @@ const ContactSection: React.FC = () => {
                   id="message" 
                   placeholder="Descreva o problema com seu dispositivo" 
                   className="bg-black/50 border-white/20 text-white min-h-[120px]"
+                  value={formData.message}
+                  onChange={handleChange}
                 />
               </div>
               
-              <Button className="w-full bg-doctor hover:bg-doctor-dark text-white">
+              <Button type="submit" className="w-full bg-doctor hover:bg-doctor-dark text-white">
                 Enviar Mensagem
               </Button>
             </div>
