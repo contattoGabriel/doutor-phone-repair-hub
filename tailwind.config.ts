@@ -64,9 +64,9 @@ export default {
 					muted: '#FFE5E7',
 				},
 				brand: {
-					blue: '#1EAEDB', // Bright blue added for the brand
-					darkBlue: '#0EA5E9',
-					lightBlue: '#33C3F0',
+					blue: '#1E52F1', // Cor azul atualizada conforme solicitado
+					darkBlue: '#0E3FD8',
+					lightBlue: '#4A75FF',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

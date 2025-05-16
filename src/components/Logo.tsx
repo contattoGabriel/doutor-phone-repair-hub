@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PhoneIcon } from 'lucide-react';
+import { Phone } from 'lucide-react';
 
 interface LogoProps {
   className?: string;
@@ -32,7 +32,7 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
     <Link to="/" className={`flex items-center ${sizes[size].container} ${className}`}>
       <div className="relative">
         <div className="absolute inset-0 bg-brand-blue rounded-full blur-sm opacity-70"></div>
-        <PhoneIcon className={`${sizes[size].icon} text-white relative z-10`} />
+        <Phone className={`${sizes[size].icon} text-white relative z-10`} />
       </div>
       <span className={`font-display ${sizes[size].text} font-bold`}>
         Doutor<span className="text-doctor">Phone</span>
