@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { PhoneIcon, MailIcon, MessageSquareIcon, InstagramIcon, MapPinIcon } from 'lucide-react';
+import { Phone as PhoneIcon, Mail as MailIcon, MessageSquare as MessageSquareIcon, Instagram as InstagramIcon, MapPin as MapPinIcon } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import gsap from 'gsap';
 
