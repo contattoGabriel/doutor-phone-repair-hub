@@ -60,7 +60,7 @@ const AboutSection: React.FC = () => {
         span.style.transition = `opacity 0.5s ease, transform 0.5s ease`;
         span.style.transitionDelay = `${i * 0.03}s`;
         descriptionRef.current.appendChild(span);
-      }
+      });
       
       ScrollTrigger.create({
         trigger: descriptionRef.current,
