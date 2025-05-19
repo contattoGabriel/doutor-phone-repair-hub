@@ -31,7 +31,7 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, delay }) => {
   return (
     <div 
       ref={featureRef} 
-      className="flex flex-col items-center bg-white/5 backdrop-blur-md p-6 rounded-lg border border-white/10 transition-all duration-500 hover:border-brand-blue/30 hover:bg-white/8"
+      className="flex flex-col items-center bg-site-light/5 backdrop-blur-md p-6 rounded-lg border border-white/10 transition-all duration-500 hover:border-brand-blue/30 hover:bg-white/8"
     >
       <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center mb-4">
         {icon}
@@ -108,7 +108,7 @@ const AboutSection: React.FC = () => {
     <section 
       id="about" 
       ref={sectionRef} 
-      className="py-20 bg-zinc-900 relative"
+      className="py-20 bg-site-dark relative"
     >
       <div 
         className="absolute inset-0 z-0 opacity-20"
@@ -122,10 +122,10 @@ const AboutSection: React.FC = () => {
       
       <div className="container px-4 mx-auto relative z-10">
         <div ref={contentRef} className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-site-light mb-6">
             Por Que <span className="text-brand-blue">Escolher</span> a Doutor Phone
           </h2>
-          <p ref={descriptionRef} className="text-white/80 mb-8 text-lg">
+          <p ref={descriptionRef} className="text-site-light/80 mb-8 text-lg">
             Na Doutor Phone, somos especialistas em reparos de iPhone e Android. Com técnicos certificados e peças originais, oferecemos serviços rápidos, garantia de qualidade e atendimento personalizado. Não venda seu dispositivo por problemas simples - confie em quem entende para resolver.
           </p>
         </div>
@@ -151,7 +151,7 @@ const AboutSection: React.FC = () => {
         {/* Apple-style animated highlight */}
         <div className="mt-16 text-center">
           <div className="inline-block relative">
-            <span className="text-2xl font-light text-white">
+            <span className="text-2xl font-light text-site-light">
               Não venda seu iPhone de graça por <span className="font-bold">motivo de saúde baixa</span>
             </span>
             <div ref={highlightRef} className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue"></div>

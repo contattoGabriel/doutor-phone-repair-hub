@@ -28,7 +28,7 @@ const Header: React.FC = () => {
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-black/80 backdrop-blur-md py-2' 
+          ? 'bg-site-dark/80 backdrop-blur-md py-2' 
           : 'bg-transparent py-4'
       }`}
     >
@@ -37,16 +37,16 @@ const Header: React.FC = () => {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/" className="text-white hover:text-brand-blue transition-colors">Início</Link>
-          <Link to="#services" className="text-white hover:text-brand-blue transition-colors">Serviços</Link>
-          <Link to="#about" className="text-white hover:text-brand-blue transition-colors">Sobre</Link>
-          <Link to="#contact" className="text-white hover:text-brand-blue transition-colors">Contato</Link>
+          <Link to="/" className="text-site-light hover:text-brand-blue transition-colors">Início</Link>
+          <Link to="#services" className="text-site-light hover:text-brand-blue transition-colors">Serviços</Link>
+          <Link to="#about" className="text-site-light hover:text-brand-blue transition-colors">Sobre</Link>
+          <Link to="#contact" className="text-site-light hover:text-brand-blue transition-colors">Contato</Link>
           <WhatsAppButton />
         </nav>
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-white"
+          className="md:hidden text-site-light"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
@@ -55,32 +55,32 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md py-4 animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 w-full bg-site-dark/95 backdrop-blur-md py-4 animate-fade-in">
           <nav className="flex flex-col items-center gap-4">
             <Link 
               to="/" 
-              className="text-white hover:text-brand-blue transition-colors py-2"
+              className="text-site-light hover:text-brand-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Início
             </Link>
             <Link 
               to="#services" 
-              className="text-white hover:text-brand-blue transition-colors py-2"
+              className="text-site-light hover:text-brand-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Serviços
             </Link>
             <Link 
               to="#about" 
-              className="text-white hover:text-brand-blue transition-colors py-2"
+              className="text-site-light hover:text-brand-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Sobre
             </Link>
             <Link 
               to="#contact" 
-              className="text-white hover:text-brand-blue transition-colors py-2"
+              className="text-site-light hover:text-brand-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Contato
@@ -96,8 +96,8 @@ const Header: React.FC = () => {
 export const WhatsAppButton: React.FC = () => {
   return (
     <Button 
-      className="bg-doctor hover:bg-doctor-dark text-white font-medium px-4 py-2 rounded-md transition-transform duration-300 hover:scale-105"
-      onClick={() => window.open('https://wa.me/5531999432225?text=Olá,%20gostaria%20de%20mais%20informações', '_blank')}
+      className="bg-brand-blue hover:bg-brand-darkBlue text-site-light font-medium px-4 py-2 rounded-md transition-transform duration-300 hover:scale-105"
+      onClick={() => window.open('https://wa.me/553199943225?text=Olá,%20gostaria%20de%20mais%20informações', '_blank')}
     >
       Agendar Agora
     </Button>

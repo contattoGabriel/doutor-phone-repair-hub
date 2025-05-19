@@ -55,21 +55,21 @@ const HeroSection: React.FC = () => {
   return (
     <div 
       ref={heroRef}
-      className="relative min-h-screen bg-black flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen bg-site-dark flex items-center justify-center overflow-hidden"
       style={{
         backgroundImage: "url('https://images.unsplash.com/photo-1581993192873-6ac88bef5be5?q=80&w=2069&auto=format&fit=crop')",
         backgroundSize: "cover",
         backgroundPosition: "center"
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40 backdrop-blur-[1px]"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-site-dark/80 to-site-dark/40 backdrop-blur-[1px]"></div>
       
       <div className="container mx-auto z-10 px-4 text-center">
         <div 
           ref={textRef}
           className="mb-4"
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-site-light tracking-tight">
             Doutor<span className="text-brand-blue">Phone</span>
           </h1>
         </div>
@@ -78,7 +78,7 @@ const HeroSection: React.FC = () => {
           ref={taglineRef}
           className="mb-8"
         >
-          <h2 className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto font-light tracking-wide">
+          <h2 className="text-xl md:text-2xl text-site-light/90 max-w-2xl mx-auto font-light tracking-wide">
             Seu Celular, Nossa Especialidade. Reparos rápidos, confiáveis e com garantia para iPhone e Android.
           </h2>
         </div>
@@ -93,8 +93,8 @@ const HeroSection: React.FC = () => {
       
       {/* Apple-inspired scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="w-8 h-12 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-bounce"></div>
+        <div className="w-8 h-12 border-2 border-site-light/30 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-site-light/70 rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
     </div>

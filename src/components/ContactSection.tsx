@@ -52,7 +52,7 @@ const ContactSection: React.FC = () => {
     const encodedMessage = encodeURIComponent(message);
     
     // Abrir o WhatsApp com a mensagem formatada
-    window.open(`https://wa.me/5531999432225?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/553199943225?text=${encodedMessage}`, '_blank');
   };
   
   useEffect(() => {
@@ -82,30 +82,30 @@ const ContactSection: React.FC = () => {
     <section 
       id="contact" 
       ref={sectionRef}
-      className="py-20 bg-black"
+      className="py-20 bg-site-dark"
     >
       <div className="container px-4 mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Entre em <span className="text-doctor">Contato</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-site-light mb-4">
+            Entre em <span className="text-brand-blue">Contato</span>
           </h2>
-          <p className="text-white/70 max-w-2xl mx-auto">
+          <p className="text-site-light/70 max-w-2xl mx-auto">
             Estamos prontos para ajudar com o reparo do seu dispositivo. Preencha o formulário 
             abaixo ou entre em contato diretamente pelos nossos canais de atendimento.
           </p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
-          <form ref={formRef} className="bg-zinc-900/50 p-6 md:p-8 rounded-lg border border-white/10" onSubmit={handleSubmit}>
+          <form ref={formRef} className="bg-site-dark/50 p-6 md:p-8 rounded-lg border border-site-light/10" onSubmit={handleSubmit}>
             <div className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-white text-sm font-medium mb-1">
-                  Nome Completo <span className="text-doctor">*</span>
+                <label htmlFor="name" className="block text-site-light text-sm font-medium mb-1">
+                  Nome Completo <span className="text-brand-blue">*</span>
                 </label>
                 <Input 
                   id="name" 
                   placeholder="Seu nome" 
-                  className="bg-black/50 border-white/20 text-white"
+                  className="bg-site-dark/50 border-site-light/20 text-site-light"
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -113,27 +113,27 @@ const ContactSection: React.FC = () => {
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-white text-sm font-medium mb-1">
+                <label htmlFor="email" className="block text-site-light text-sm font-medium mb-1">
                   E-mail
                 </label>
                 <Input 
                   id="email" 
                   type="email" 
                   placeholder="seu@email.com" 
-                  className="bg-black/50 border-white/20 text-white"
+                  className="bg-site-dark/50 border-site-light/20 text-site-light"
                   value={formData.email}
                   onChange={handleChange}
                 />
               </div>
               
               <div>
-                <label htmlFor="phone" className="block text-white text-sm font-medium mb-1">
-                  Telefone <span className="text-doctor">*</span>
+                <label htmlFor="phone" className="block text-site-light text-sm font-medium mb-1">
+                  Telefone <span className="text-brand-blue">*</span>
                 </label>
                 <Input 
                   id="phone" 
                   placeholder="(00) 00000-0000" 
-                  className="bg-black/50 border-white/20 text-white"
+                  className="bg-site-dark/50 border-site-light/20 text-site-light"
                   value={formData.phone}
                   onChange={handleChange}
                   required
@@ -141,13 +141,13 @@ const ContactSection: React.FC = () => {
               </div>
               
               <div>
-                <label htmlFor="model" className="block text-white text-sm font-medium mb-1">
-                  Modelo do Celular <span className="text-doctor">*</span>
+                <label htmlFor="model" className="block text-site-light text-sm font-medium mb-1">
+                  Modelo do Celular <span className="text-brand-blue">*</span>
                 </label>
                 <Input 
                   id="model" 
                   placeholder="Ex: iPhone 13, Samsung Galaxy S21" 
-                  className="bg-black/50 border-white/20 text-white"
+                  className="bg-site-dark/50 border-site-light/20 text-site-light"
                   value={formData.model}
                   onChange={handleChange}
                   required
@@ -155,19 +155,19 @@ const ContactSection: React.FC = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-white text-sm font-medium mb-1">
+                <label htmlFor="message" className="block text-site-light text-sm font-medium mb-1">
                   Descrição do Problema
                 </label>
                 <Textarea 
                   id="message" 
                   placeholder="Descreva o problema com seu dispositivo" 
-                  className="bg-black/50 border-white/20 text-white min-h-[120px]"
+                  className="bg-site-dark/50 border-site-light/20 text-site-light min-h-[120px]"
                   value={formData.message}
                   onChange={handleChange}
                 />
               </div>
               
-              <Button type="submit" className="w-full bg-doctor hover:bg-doctor-dark text-white">
+              <Button type="submit" className="w-full bg-brand-blue hover:bg-brand-darkBlue text-site-light">
                 Enviar Mensagem
               </Button>
             </div>
@@ -178,56 +178,56 @@ const ContactSection: React.FC = () => {
             className="flex flex-col justify-center space-y-8"
           >
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-doctor/10 flex items-center justify-center shrink-0">
-                <PhoneIcon className="h-5 w-5 text-doctor" />
+              <div className="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0">
+                <PhoneIcon className="h-5 w-5 text-brand-blue" />
               </div>
               <div>
-                <h3 className="text-white font-medium text-lg mb-1">Telefone</h3>
-                <p className="text-white/70">+55 31 9994-3225</p>
+                <h3 className="text-site-light font-medium text-lg mb-1">Telefone</h3>
+                <p className="text-site-light/70">31 9994-3225</p>
               </div>
             </div>
             
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-doctor/10 flex items-center justify-center shrink-0">
-                <MailIcon className="h-5 w-5 text-doctor" />
+              <div className="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0">
+                <MailIcon className="h-5 w-5 text-brand-blue" />
               </div>
               <div>
-                <h3 className="text-white font-medium text-lg mb-1">E-mail</h3>
-                <p className="text-white/70">contato@doutorphone.com.br</p>
+                <h3 className="text-site-light font-medium text-lg mb-1">E-mail</h3>
+                <p className="text-site-light/70">contato@doutorphone.com.br</p>
               </div>
             </div>
             
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-doctor/10 flex items-center justify-center shrink-0">
-                <MessageSquareIcon className="h-5 w-5 text-doctor" />
+              <div className="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0">
+                <MessageSquareIcon className="h-5 w-5 text-brand-blue" />
               </div>
               <div>
-                <h3 className="text-white font-medium text-lg mb-1">WhatsApp</h3>
-                <p className="text-white/70">
+                <h3 className="text-site-light font-medium text-lg mb-1">WhatsApp</h3>
+                <p className="text-site-light/70">
                   <a 
-                    href="https://wa.me/5531999432225" 
+                    href="https://wa.me/553199943225" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-doctor hover:underline"
+                    className="text-brand-blue hover:underline"
                   >
-                    +55 31 9994-3225
+                    31 9994-3225
                   </a>
                 </p>
               </div>
             </div>
             
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-doctor/10 flex items-center justify-center shrink-0">
-                <InstagramIcon className="h-5 w-5 text-doctor" />
+              <div className="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0">
+                <InstagramIcon className="h-5 w-5 text-brand-blue" />
               </div>
               <div>
-                <h3 className="text-white font-medium text-lg mb-1">Instagram</h3>
-                <p className="text-white/70">
+                <h3 className="text-site-light font-medium text-lg mb-1">Instagram</h3>
+                <p className="text-site-light/70">
                   <a 
                     href="https://instagram.com/doutorphone" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-doctor hover:underline"
+                    className="text-brand-blue hover:underline"
                   >
                     @doutorphone
                   </a>
@@ -236,12 +236,12 @@ const ContactSection: React.FC = () => {
             </div>
             
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-doctor/10 flex items-center justify-center shrink-0">
-                <MapPinIcon className="h-5 w-5 text-doctor" />
+              <div className="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0">
+                <MapPinIcon className="h-5 w-5 text-brand-blue" />
               </div>
               <div>
-                <h3 className="text-white font-medium text-lg mb-1">Endereço</h3>
-                <p className="text-white/70">Av. Afonso Pena, 1500, Belo Horizonte - MG</p>
+                <h3 className="text-site-light font-medium text-lg mb-1">Endereço</h3>
+                <p className="text-site-light/70">Av. Afonso Pena, 1500, Belo Horizonte - MG</p>
               </div>
             </div>
           </div>
