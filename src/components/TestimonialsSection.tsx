@@ -89,11 +89,11 @@ const TestimonialsSection: React.FC = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-zinc-900 to-black"
+      className="py-20 bg-gradient-to-b from-site-light to-site-gray/30"
     >
       <div className="container px-4 mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-site-dark mb-4">
             O Que Nossos <span className="text-doctor">Clientes</span> Dizem
           </h2>
         </div>
@@ -103,7 +103,7 @@ const TestimonialsSection: React.FC = () => {
             ref={carouselRef}
             className="transition-all duration-300"
           >
-            <Card className="bg-black/30 backdrop-blur-sm border-white/10 overflow-hidden">
+            <Card className="bg-white/80 backdrop-blur-sm border-site-gray/10 overflow-hidden shadow-md">
               <CardContent className="p-8">
                 <div className="flex flex-col md:flex-row items-center gap-6">
                   <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shrink-0">
@@ -119,7 +119,7 @@ const TestimonialsSection: React.FC = () => {
                         <StarIcon key={i} className="h-5 w-5 fill-doctor text-doctor" />
                       ))}
                     </div>
-                    <p className="text-white text-lg md:text-xl italic mb-4">
+                    <p className="text-site-dark text-lg md:text-xl italic mb-4">
                       "{testimonials[currentIndex].quote}"
                     </p>
                     <p className="text-doctor font-medium">
@@ -134,7 +134,7 @@ const TestimonialsSection: React.FC = () => {
           <div className="flex justify-center mt-6 gap-3">
             <button 
               onClick={prevSlide}
-              className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-white transition-colors"
+              className="w-10 h-10 rounded-full bg-site-gray hover:bg-site-gray/80 flex items-center justify-center text-site-dark transition-colors"
             >
               <ChevronLeftIcon className="h-5 w-5" />
             </button>
@@ -144,7 +144,7 @@ const TestimonialsSection: React.FC = () => {
                 <button
                   key={index}
                   className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                    index === currentIndex ? 'bg-doctor' : 'bg-zinc-700'
+                    index === currentIndex ? 'bg-doctor' : 'bg-site-gray'
                   }`}
                   onClick={() => setCurrentIndex(index)}
                 />
@@ -153,7 +153,7 @@ const TestimonialsSection: React.FC = () => {
             
             <button 
               onClick={nextSlide}
-              className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-white transition-colors"
+              className="w-10 h-10 rounded-full bg-site-gray hover:bg-site-gray/80 flex items-center justify-center text-site-dark transition-colors"
             >
               <ChevronRightIcon className="h-5 w-5" />
             </button>

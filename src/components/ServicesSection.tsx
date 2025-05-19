@@ -33,16 +33,16 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, del
   return (
     <Card 
       ref={cardRef}
-      className="service-card bg-site-light/5 backdrop-blur-sm border border-site-light/10 overflow-hidden transform transition-all duration-500 hover:translate-y-[-8px] hover:shadow-[0_20px_50px_rgba(0,113,227,0.15)]"
+      className="service-card bg-white backdrop-blur-sm border border-site-gray/10 overflow-hidden transform transition-all duration-500 hover:translate-y-[-8px] hover:shadow-[0_20px_50px_rgba(0,113,227,0.15)]"
     >
       <CardHeader className="pb-2">
         <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center mb-4">
           {icon}
         </div>
-        <CardTitle className="text-xl font-bold text-site-light">{title}</CardTitle>
+        <CardTitle className="text-xl font-bold text-site-dark">{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <CardDescription className="text-site-gray">{description}</CardDescription>
+        <CardDescription className="text-site-dark/70">{description}</CardDescription>
       </CardContent>
       <CardFooter>
         <div className="text-brand-blue text-sm font-medium cursor-pointer hover:underline">
@@ -138,13 +138,13 @@ const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section id="services" ref={sectionRef} className="py-20 bg-gradient-to-b from-site-dark to-site-dark/90">
+    <section id="services" ref={sectionRef} className="py-20 bg-gradient-to-b from-site-light to-site-light/90">
       <div className="container px-4 mx-auto">
         <div ref={titleRef} className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-site-light mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-site-dark mb-4">
             Nossos <span className="text-brand-blue">Serviços</span> Especializados
           </h2>
-          <p className="text-site-light/70 max-w-2xl mx-auto">
+          <p className="text-site-dark/70 max-w-2xl mx-auto">
             Oferecemos uma variedade de serviços especializados para reparar e otimizar o desempenho do seu dispositivo.
           </p>
         </div>
@@ -162,7 +162,7 @@ const ServicesSection: React.FC = () => {
         </div>
         
         <div className="mt-12 text-center bg-brand-blue/10 py-6 px-4 rounded-lg border border-brand-blue/20 max-w-xl mx-auto">
-          <p className="text-site-light font-medium">
+          <p className="text-site-dark font-medium">
             <span className="text-brand-blue font-bold">Não venda seu iPhone de graça por motivo de saúde baixa!</span> 
             <br />Trocamos sua bateria por uma original e voltamos a saúde dele para 100%.
           </p>

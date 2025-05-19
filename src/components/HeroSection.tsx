@@ -62,7 +62,7 @@ const HeroSection: React.FC = () => {
         backgroundPosition: "center"
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-site-dark/80 to-site-dark/40 backdrop-blur-[1px]"></div>
+      <div className="absolute inset-0 hero-gradient backdrop-blur-[1px]"></div>
       
       <div className="container mx-auto z-10 px-4 text-center">
         <div 

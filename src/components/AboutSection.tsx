@@ -31,12 +31,12 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, delay }) => {
   return (
     <div 
       ref={featureRef} 
-      className="flex flex-col items-center bg-site-light/5 backdrop-blur-md p-6 rounded-lg border border-white/10 transition-all duration-500 hover:border-brand-blue/30 hover:bg-white/8"
+      className="flex flex-col items-center bg-white backdrop-blur-sm p-6 rounded-lg border border-site-gray/20 transition-all duration-500 hover:border-brand-blue/30 hover:bg-site-light"
     >
       <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center mb-4">
         {icon}
       </div>
-      <h3 className="text-white text-lg font-medium">{title}</h3>
+      <h3 className="text-site-dark text-lg font-medium">{title}</h3>
     </div>
   );
 };
@@ -108,10 +108,10 @@ const AboutSection: React.FC = () => {
     <section 
       id="about" 
       ref={sectionRef} 
-      className="py-20 bg-site-dark relative"
+      className="py-20 bg-site-light relative"
     >
       <div 
-        className="absolute inset-0 z-0 opacity-20"
+        className="absolute inset-0 z-0 opacity-10"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1573148195900-7845dcb9b127?q=80&w=2070&auto=format&fit=crop')",
           backgroundSize: "cover",
@@ -122,10 +122,10 @@ const AboutSection: React.FC = () => {
       
       <div className="container px-4 mx-auto relative z-10">
         <div ref={contentRef} className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-site-light mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-site-dark mb-6">
             Por Que <span className="text-brand-blue">Escolher</span> a Doutor Phone
           </h2>
-          <p ref={descriptionRef} className="text-site-light/80 mb-8 text-lg">
+          <p ref={descriptionRef} className="text-site-dark/80 mb-8 text-lg">
             Na Doutor Phone, somos especialistas em reparos de iPhone e Android. Com técnicos certificados e peças originais, oferecemos serviços rápidos, garantia de qualidade e atendimento personalizado. Não venda seu dispositivo por problemas simples - confie em quem entende para resolver.
           </p>
         </div>
@@ -151,7 +151,7 @@ const AboutSection: React.FC = () => {
         {/* Apple-style animated highlight */}
         <div className="mt-16 text-center">
           <div className="inline-block relative">
-            <span className="text-2xl font-light text-site-light">
+            <span className="text-2xl font-light text-site-dark">
               Não venda seu iPhone de graça por <span className="font-bold">motivo de saúde baixa</span>
             </span>
             <div ref={highlightRef} className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue"></div>

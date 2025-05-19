@@ -57,7 +57,7 @@ const Index: React.FC = () => {
   }, []);
   
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
+    <div className="min-h-screen bg-site-light text-site-dark overflow-hidden">
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <Header />
