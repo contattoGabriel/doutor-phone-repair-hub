@@ -2,29 +2,48 @@
 import React, { useEffect, useRef } from 'react';
 import { WhatsAppButton } from './Header';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const taglineRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    const tl = gsap.timeline();
-    
-    tl.from(textRef.current, {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out"
+    const tl = gsap.timeline({
+      defaults: { 
+        ease: "power3.out"
+      }
     });
     
-    // Parallax effect on scroll
+    // Apple-style staggered text reveal
+    tl.from(textRef.current, {
+      y: 30,
+      opacity: 0,
+      duration: 1.2,
+    })
+    .from(taglineRef.current, {
+      y: 20,
+      opacity: 0,
+      duration: 0.8,
+    }, "-=0.6") // Start slightly before previous animation ends
+    .from(buttonRef.current, {
+      scale: 0.9,
+      opacity: 0,
+      duration: 0.6
+    }, "-=0.4");
+    
+    // Parallax effect on scroll with easing
     gsap.to(heroRef.current, {
-      backgroundPositionY: "30%",
+      backgroundPositionY: "40%",
       scrollTrigger: {
         trigger: heroRef.current,
         start: "top top",
         end: "bottom top",
-        scrub: true
+        scrub: 1.5, // Smoother scrub for more fluid effect
       }
     });
     
@@ -43,21 +62,39 @@ const HeroSection: React.FC = () => {
         backgroundPosition: "center"
       }}
     >
-      <div className="absolute inset-0 hero-gradient"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40 backdrop-blur-[1px]"></div>
       
-      <div 
-        ref={textRef}
-        className="container mx-auto z-10 px-4 text-center"
-      >
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
-          Doutor<span className="text-doctor">Phone</span>
-        </h1>
-        <h2 className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
-          Seu Celular, Nossa Especialidade. Reparos rápidos, confiáveis e com garantia.
-        </h2>
+      <div className="container mx-auto z-10 px-4 text-center">
+        <div 
+          ref={textRef}
+          className="mb-4"
+        >
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
+            Doutor<span className="text-brand-blue">Phone</span>
+          </h1>
+        </div>
         
-        <div className="animate-pulse mt-8">
+        <div 
+          ref={taglineRef}
+          className="mb-8"
+        >
+          <h2 className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto font-light tracking-wide">
+            Seu Celular, Nossa Especialidade. Reparos rápidos, confiáveis e com garantia para iPhone e Android.
+          </h2>
+        </div>
+        
+        <div 
+          ref={buttonRef}
+          className="mt-8"
+        >
           <WhatsAppButton />
+        </div>
+      </div>
+      
+      {/* Apple-inspired scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className="w-8 h-12 border-2 border-white/30 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
     </div>

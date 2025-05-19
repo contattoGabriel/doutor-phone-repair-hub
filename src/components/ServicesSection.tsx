@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { SmartphoneIcon, BatteryIcon, CameraIcon, SettingsIcon, Wrench } from 'lucide-react';
+import { Smartphone, Battery, Wrench, Cable, ShoppingCart, Tag, Image, Camera, Phone } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -33,7 +33,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, del
   return (
     <Card 
       ref={cardRef}
-      className="service-card bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden"
+      className="service-card bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden transform transition-all duration-500 hover:translate-y-[-8px] hover:shadow-[0_20px_50px_rgba(30,82,241,0.15)]"
     >
       <CardHeader className="pb-2">
         <div className="w-12 h-12 rounded-full bg-doctor/10 flex items-center justify-center mb-4">
@@ -45,7 +45,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, del
         <CardDescription className="text-muted-foreground">{description}</CardDescription>
       </CardContent>
       <CardFooter>
-        <div className="text-doctor text-sm font-medium cursor-pointer hover:underline">
+        <div className="text-brand-blue text-sm font-medium cursor-pointer hover:underline">
           Saiba Mais
         </div>
       </CardFooter>
@@ -67,38 +67,72 @@ const ServicesSection: React.FC = () => {
         start: "top bottom-=100",
       }
     });
+    
+    // Apple-inspired staggered animation
+    const cards = gsap.utils.toArray('.service-card');
+    gsap.set(cards, { opacity: 0, y: 50 });
+    
+    ScrollTrigger.batch(cards, {
+      interval: 0.1,
+      batchMax: 3,
+      onEnter: batch => gsap.to(batch, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: "power3.out",
+      }),
+    });
   }, []);
   
   const services = [
     {
       title: "Troca de Tela",
-      description: "Substituição de telas quebradas ou com defeito, mantendo a qualidade original do seu aparelho.",
-      icon: <SmartphoneIcon className="text-doctor h-6 w-6" />,
+      description: "Substituição de telas quebradas ou com defeito para iPhone e Android, mantendo a qualidade original do seu aparelho.",
+      icon: <Smartphone className="text-brand-blue h-6 w-6" />,
       delay: 0.1
     },
     {
-      title: "Substituição de Bateria",
-      description: "Restaure a duração da bateria do seu dispositivo com peças de alta qualidade.",
-      icon: <BatteryIcon className="text-doctor h-6 w-6" />,
+      title: "Reparo em Placas",
+      description: "Consertos técnicos avançados em placas-mãe para recuperar dispositivos com problemas complexos.",
+      icon: <Wrench className="text-brand-blue h-6 w-6" />,
       delay: 0.2
     },
     {
-      title: "Reparos de Câmera",
-      description: "Conserte problemas com a câmera frontal ou traseira do seu celular.",
-      icon: <CameraIcon className="text-doctor h-6 w-6" />,
+      title: "Troca de Bateria",
+      description: "Restaure a saúde da bateria do seu iPhone ou Android para 100% com peças originais de alta qualidade.",
+      icon: <Battery className="text-brand-blue h-6 w-6" />,
       delay: 0.3
     },
     {
-      title: "Diagnóstico Geral",
-      description: "Análise completa do seu dispositivo para identificar todos os problemas existentes.",
-      icon: <SettingsIcon className="text-doctor h-6 w-6" />,
+      title: "Carregadores e Cabos",
+      description: "Venda de acessórios originais e homologados para carregamento rápido e seguro do seu dispositivo.",
+      icon: <Cable className="text-brand-blue h-6 w-6" />,
       delay: 0.4
     },
     {
-      title: "Outros Serviços",
-      description: "Reparos de conectores, botões, alto-falantes e outros componentes de seu smartphone.",
-      icon: <Wrench className="text-doctor h-6 w-6" />,
+      title: "Cases e Películas",
+      description: "Proteção para seu celular com cases e películas comuns e cerâmicas da melhor qualidade.",
+      icon: <ShoppingCart className="text-brand-blue h-6 w-6" />,
       delay: 0.5
+    },
+    {
+      title: "Troca de Conector",
+      description: "Reparos em conectores de carga para iPhone e Android, resolvendo problemas de carregamento.",
+      icon: <Phone className="text-brand-blue h-6 w-6" />,
+      delay: 0.6
+    },
+    {
+      title: "Troca de Carcaça",
+      description: "Renovação completa da aparência do seu iPhone ou Android com troca de carcaça de alta qualidade.",
+      icon: <Tag className="text-brand-blue h-6 w-6" />,
+      delay: 0.7
+    },
+    {
+      title: "Diagnóstico Completo",
+      description: "Análise profissional da saúde do seu dispositivo, identificando problemas antes que se agravem.",
+      icon: <Camera className="text-brand-blue h-6 w-6" />,
+      delay: 0.8
     }
   ];
 
@@ -107,7 +141,7 @@ const ServicesSection: React.FC = () => {
       <div className="container px-4 mx-auto">
         <div ref={titleRef} className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Nossos Serviços de <span className="text-doctor">Reparo</span>
+            Nossos <span className="text-brand-blue">Serviços</span> Especializados
           </h2>
           <p className="text-white/70 max-w-2xl mx-auto">
             Oferecemos uma variedade de serviços especializados para reparar e otimizar o desempenho do seu dispositivo.
@@ -126,9 +160,10 @@ const ServicesSection: React.FC = () => {
           ))}
         </div>
         
-        <div className="mt-12 text-center bg-doctor/10 py-6 px-4 rounded-lg border border-doctor/20 max-w-xl mx-auto">
+        <div className="mt-12 text-center bg-brand-blue/10 py-6 px-4 rounded-lg border border-brand-blue/20 max-w-xl mx-auto">
           <p className="text-white font-medium">
-            <span className="text-doctor font-bold">Garantia de 90 dias</span> em todos os reparos
+            <span className="text-brand-blue font-bold">Não venda seu iPhone de graça por motivo de saúde baixa!</span> 
+            <br />Trocamos sua bateria por uma original e voltamos a saúde dele para 100%.
           </p>
         </div>
       </div>
