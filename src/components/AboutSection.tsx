@@ -45,6 +45,7 @@ const AboutSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const highlightRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     // Split text animation (Apple-inspired)
@@ -59,7 +60,7 @@ const AboutSection: React.FC = () => {
         span.style.transform = 'translateY(20px)';
         span.style.transition = `opacity 0.5s ease, transform 0.5s ease`;
         span.style.transitionDelay = `${i * 0.03}s`;
-        descriptionRef.current.appendChild(span);
+        descriptionRef.current?.appendChild(span);
       });
       
       ScrollTrigger.create({
@@ -84,6 +85,23 @@ const AboutSection: React.FC = () => {
         start: "top bottom-=100",
       }
     });
+    
+    // Apple-style highlight animation
+    if (highlightRef.current) {
+      gsap.fromTo(
+        highlightRef.current,
+        { width: "0%", left: "0" },
+        {
+          width: "100%",
+          duration: 1.2,
+          ease: "power2.inOut",
+          scrollTrigger: {
+            trigger: highlightRef.current,
+            start: "top bottom-=50",
+          }
+        }
+      );
+    }
   }, []);
   
   return (
@@ -136,7 +154,7 @@ const AboutSection: React.FC = () => {
             <span className="text-2xl font-light text-white">
               Não venda seu iPhone de graça por <span className="font-bold">motivo de saúde baixa</span>
             </span>
-            <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-brand-blue"></div>
+            <div ref={highlightRef} className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue"></div>
           </div>
         </div>
       </div>

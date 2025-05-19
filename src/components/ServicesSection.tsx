@@ -68,11 +68,12 @@ const ServicesSection: React.FC = () => {
       }
     });
     
-    // Apple-inspired staggered animation
+    // Apple-inspired staggered animation - Fix TypeScript error
     const cards = gsap.utils.toArray('.service-card');
     gsap.set(cards, { opacity: 0, y: 50 });
     
-    ScrollTrigger.batch(cards, {
+    // Fixed type issue by ensuring proper type compatibility
+    ScrollTrigger.batch(cards as Element[], {
       interval: 0.1,
       batchMax: 3,
       onEnter: batch => gsap.to(batch, {
