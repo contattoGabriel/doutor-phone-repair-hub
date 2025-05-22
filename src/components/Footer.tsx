@@ -6,36 +6,36 @@ import Logo from '@/components/Logo';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-site-dark border-t border-site-light/10">
-      <div className="container px-4 mx-auto py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-site-dark w-full border-t border-site-light/10">
+      <div className="container px-4 mx-auto py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-1">
-            <Logo size="sm" className="mb-4" />
-            <p className="text-site-light/60 text-sm">
+            <Logo size="md" className="mb-6" />
+            <p className="text-site-light/70 text-base">
               Especialistas em reparos de smartphones, com técnicos qualificados e peças originais.
             </p>
           </div>
           
           <div>
-            <h3 className="text-site-light font-medium text-lg mb-4">Links Rápidos</h3>
-            <ul className="space-y-2">
+            <h3 className="text-site-light font-medium text-xl mb-6">Links Rápidos</h3>
+            <ul className="space-y-4">
               <li>
-                <Link to="/" className="text-site-light/60 hover:text-brand-blue transition-colors text-sm">
+                <Link to="/" className="text-site-light/70 hover:text-brand-blue transition-colors text-base">
                   Início
                 </Link>
               </li>
               <li>
-                <Link to="#services" className="text-site-light/60 hover:text-brand-blue transition-colors text-sm">
+                <Link to="#services" className="text-site-light/70 hover:text-brand-blue transition-colors text-base">
                   Serviços
                 </Link>
               </li>
               <li>
-                <Link to="#about" className="text-site-light/60 hover:text-brand-blue transition-colors text-sm">
+                <Link to="#about" className="text-site-light/70 hover:text-brand-blue transition-colors text-base">
                   Sobre
                 </Link>
               </li>
               <li>
-                <Link to="#contact" className="text-site-light/60 hover:text-brand-blue transition-colors text-sm">
+                <Link to="#contact" className="text-site-light/70 hover:text-brand-blue transition-colors text-base">
                   Contato
                 </Link>
               </li>
@@ -43,30 +43,30 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h3 className="text-site-light font-medium text-lg mb-4">Contato</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-brand-blue" />
-                <span className="text-site-light/60 text-sm">31 9994-3225</span>
+            <h3 className="text-site-light font-medium text-xl mb-6">Contato</h3>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-3">
+                <Phone className="h-5 w-5 text-brand-blue" />
+                <span className="text-site-light/70 text-base">31 9994-3225</span>
               </li>
-              <li className="flex items-center gap-2">
-                <MessageSquareIcon className="h-4 w-4 text-brand-blue" />
+              <li className="flex items-center gap-3">
+                <MessageSquareIcon className="h-5 w-5 text-brand-blue" />
                 <a 
                   href="https://wa.me/553199943225" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-site-light/60 hover:text-brand-blue transition-colors text-sm"
+                  className="text-site-light/70 hover:text-brand-blue transition-colors text-base"
                 >
                   WhatsApp
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <InstagramIcon className="h-4 w-4 text-brand-blue" />
+              <li className="flex items-center gap-3">
+                <InstagramIcon className="h-5 w-5 text-brand-blue" />
                 <a 
                   href="https://instagram.com/doutorphone" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-site-light/60 hover:text-brand-blue transition-colors text-sm"
+                  className="text-site-light/70 hover:text-brand-blue transition-colors text-base"
                 >
                   Instagram
                 </a>
@@ -75,17 +75,17 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h3 className="text-site-light font-medium text-lg mb-4">Horário de Funcionamento</h3>
-            <ul className="space-y-2">
-              <li className="text-site-light/60 text-sm">Segunda a Sexta: 9h às 18h</li>
-              <li className="text-site-light/60 text-sm">Sábado: 9h às 14h</li>
-              <li className="text-site-light/60 text-sm">Domingo: Fechado</li>
+            <h3 className="text-site-light font-medium text-xl mb-6">Horário de Funcionamento</h3>
+            <ul className="space-y-4">
+              <li className="text-site-light/70 text-base">Segunda a Sexta: 9h às 18h</li>
+              <li className="text-site-light/70 text-base">Sábado: 9h às 14h</li>
+              <li className="text-site-light/70 text-base">Domingo: Fechado</li>
             </ul>
           </div>
         </div>
         
-        <div className="border-t border-site-light/10 mt-8 pt-8 text-center">
-          <p className="text-site-light/60 text-sm">
+        <div className="border-t border-site-light/10 mt-12 pt-12 text-center">
+          <p className="text-site-light/70 text-base">
             © 2025 Doutor Phone. Todos os direitos reservados.
           </p>
         </div>
