@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone } from 'lucide-react';
 
 interface LogoProps {
   className?: string;
@@ -12,32 +11,26 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
   // Size classes
   const sizes = {
     sm: {
-      container: 'gap-1',
-      icon: 'h-5 w-5',
-      text: 'text-lg'
+      container: 'h-8',
+      image: 'h-8'
     },
     md: {
-      container: 'gap-2',
-      icon: 'h-7 w-7',
-      text: 'text-xl md:text-2xl'
+      container: 'h-10',
+      image: 'h-10'
     },
     lg: {
-      container: 'gap-3',
-      icon: 'h-9 w-9',
-      text: 'text-3xl md:text-4xl'
+      container: 'h-16',
+      image: 'h-16'
     }
   };
 
   return (
-    <Link to="/" className={`flex items-center ${sizes[size].container} ${className}`}>
-      <div className="relative">
-        <div className="absolute inset-0 bg-brand-blue rounded-full blur-sm opacity-70"></div>
-        <Phone className={`${sizes[size].icon} text-site-light relative z-10`} />
-      </div>
-      <span className={`font-display ${sizes[size].text} font-bold`}>
-        Doutor<span className="text-doctor">Phone</span>
-        <span className="text-brand-blue">.</span>
-      </span>
+    <Link to="/" className={`flex items-center ${className}`}>
+      <img 
+        src="/lovable-uploads/e14b38c9-7341-422f-9370-28ecf982fc1a.png" 
+        alt="DoutorPhone Logo" 
+        className={`${sizes[size].image} object-contain`}
+      />
     </Link>
   );
 };
