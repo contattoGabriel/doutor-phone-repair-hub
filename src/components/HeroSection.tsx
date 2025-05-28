@@ -3,7 +3,6 @@ import React, { useEffect, useRef } from 'react';
 import { WhatsAppButton } from './Header';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Logo from './Logo';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,8 +59,7 @@ const HeroSection: React.FC = () => {
       style={{
         backgroundImage: "url('https://images.unsplash.com/photo-1581993192873-6ac88bef5be5?q=80&w=2069&auto=format&fit=crop')",
         backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat"
+        backgroundPosition: "center"
       }}
     >
       <div className="absolute inset-0 hero-gradient backdrop-blur-[1px]"></div>
@@ -69,16 +67,18 @@ const HeroSection: React.FC = () => {
       <div className="container mx-auto z-10 px-4 text-center">
         <div 
           ref={textRef}
-          className="mb-4 flex justify-center"
+          className="mb-4"
         >
-          <Logo size="lg" className="mx-auto scale-[2.5]" />
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-site-light tracking-tight">
+            Doutor<span className="text-brand-blue">Phone</span>
+          </h1>
         </div>
         
         <div 
           ref={taglineRef}
           className="mb-8"
         >
-          <h2 className="text-xl md:text-2xl text-site-light/90 max-w-2xl mx-auto font-light tracking-wide mt-20">
+          <h2 className="text-xl md:text-2xl text-site-light/90 max-w-2xl mx-auto font-light tracking-wide">
             Seu Celular, Nossa Especialidade. Reparos rápidos, confiáveis e com garantia para iPhone e Android.
           </h2>
         </div>

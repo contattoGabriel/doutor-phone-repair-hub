@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -57,15 +58,15 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				doctor: {
-					DEFAULT: '#202020', // Nova cor escura para "Doutor"
-					dark: '#181818',
-					light: '#303030',
-					muted: '#E5E5E5',
+					DEFAULT: '#E30B17', // Ferrari red
+					dark: '#B20812',
+					light: '#FF1A25',
+					muted: '#FFE5E7',
 				},
 				brand: {
-					blue: '#0095FF', // Nova cor azul brilhante da logo
-					darkBlue: '#007ACC',
-					lightBlue: '#33ADFF',
+					blue: '#0071e3', // Updated blue color as requested
+					darkBlue: '#005bbf',
+					lightBlue: '#0086f0',
 				},
 				site: {
 					light: '#f5f5f7',    // Light background
