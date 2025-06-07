@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
-import { BadgeCheckIcon, ShieldCheckIcon, ClockIcon } from 'lucide-react';
+import { BadgeCheckIcon, ShieldCheckIcon, ClockIcon, StarIcon } from 'lucide-react';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -31,15 +32,23 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, delay }) => {
   return (
     <div 
       ref={featureRef} 
-      className="flex flex-col items-center bg-white backdrop-blur-sm p-6 rounded-lg border border-site-gray/20 transition-all duration-500 hover:border-brand-blue/30 hover:bg-site-light"
+      className="flex flex-col items-center bg-white backdrop-blur-sm p-6 rounded-lg border border-site-gray/20 transition-all duration-500 hover:border-doctor/30 hover:bg-site-light"
     >
-      <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center mb-4">
+      <div className="w-12 h-12 rounded-full bg-doctor/10 flex items-center justify-center mb-4">
         {icon}
       </div>
       <h3 className="text-site-dark text-lg font-medium">{title}</h3>
     </div>
   );
 };
+
+const feedbacks = [
+  { name: "Ana Silva", comment: "Atendimento excepcional e muito profissional!", rating: 5 },
+  { name: "Carlos Santos", comment: "Técnicos muito competentes e atenciosos.", rating: 5 },
+  { name: "Maria Oliveira", comment: "Serviço rápido e de qualidade. Recomendo!", rating: 5 },
+  { name: "João Pereira", comment: "Profissionalismo exemplar em todos os aspectos.", rating: 5 },
+  { name: "Fernanda Costa", comment: "Equipe muito preparada e dedicada.", rating: 5 },
+];
 
 const AboutSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -110,42 +119,63 @@ const AboutSection: React.FC = () => {
       ref={sectionRef} 
       className="py-20 bg-site-light relative"
     >
-      <div 
-        className="absolute inset-0 z-0 opacity-10"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1573148195900-7845dcb9b127?q=80&w=2070&auto=format&fit=crop')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          filter: "grayscale(0.5)"
-        }}
-      ></div>
-      
       <div className="container px-4 mx-auto relative z-10">
-        <div ref={contentRef} className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-site-dark mb-6">
-            Por Que <span className="text-brand-blue">Escolher</span> a Doutor Phone
-          </h2>
-          <p ref={descriptionRef} className="text-site-dark/80 mb-8 text-lg">
-            Na Doutor Phone, somos especialistas em reparos de iPhone e Android. Com técnicos certificados e peças originais, oferecemos serviços rápidos, garantia de qualidade e atendimento personalizado. Não venda seu dispositivo por problemas simples - confie em quem entende para resolver.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <Feature 
-            icon={<BadgeCheckIcon className="text-brand-blue h-6 w-6" />}
-            title="Técnicos Especializados"
-            delay={0.1}
-          />
-          <Feature 
-            icon={<ShieldCheckIcon className="text-brand-blue h-6 w-6" />}
-            title="Peças Originais"
-            delay={0.2}
-          />
-          <Feature 
-            icon={<ClockIcon className="text-brand-blue h-6 w-6" />}
-            title="Atendimento em Até 24h"
-            delay={0.3}
-          />
+        <div ref={contentRef} className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-site-dark mb-6">
+              Por Que <span className="text-doctor">Escolher</span> a Doutor Phone
+            </h2>
+            <p ref={descriptionRef} className="text-site-dark/80 mb-8 text-lg max-w-4xl mx-auto">
+              Na Doutor Phone, somos especialistas em reparos de iPhone e Android. Com técnicos certificados e peças originais, oferecemos serviços rápidos, garantia de qualidade e atendimento personalizado. Não venda seu dispositivo por problemas simples - confie em quem entende para resolver.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Features Section */}
+            <div className="lg:col-span-2">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Feature 
+                  icon={<BadgeCheckIcon className="text-doctor h-6 w-6" />}
+                  title="Técnicos Especializados"
+                  delay={0.1}
+                />
+                <Feature 
+                  icon={<ShieldCheckIcon className="text-doctor h-6 w-6" />}
+                  title="Peças Originais"
+                  delay={0.2}
+                />
+                <Feature 
+                  icon={<ClockIcon className="text-doctor h-6 w-6" />}
+                  title="Atendimento em Até 24h"
+                  delay={0.3}
+                />
+              </div>
+            </div>
+            
+            {/* Feedbacks Section with Scroll */}
+            <div className="lg:col-span-1">
+              <div className="bg-white/80 backdrop-blur-sm rounded-lg border border-site-gray/20 p-6">
+                <h3 className="text-xl font-bold text-site-dark mb-4 text-center">
+                  Feedbacks dos <span className="text-doctor">Clientes</span>
+                </h3>
+                <ScrollArea className="h-80">
+                  <div className="space-y-4 pr-4">
+                    {feedbacks.map((feedback, index) => (
+                      <div key={index} className="bg-site-light/50 p-4 rounded-lg border border-site-gray/10">
+                        <div className="flex items-center gap-1 mb-2">
+                          {[...Array(feedback.rating)].map((_, i) => (
+                            <StarIcon key={i} className="h-4 w-4 fill-doctor text-doctor" />
+                          ))}
+                        </div>
+                        <p className="text-site-dark/80 text-sm mb-2">"{feedback.comment}"</p>
+                        <p className="text-doctor font-medium text-sm">— {feedback.name}</p>
+                      </div>
+                    ))}
+                  </div>
+                </ScrollArea>
+              </div>
+            </div>
+          </div>
         </div>
         
         {/* Apple-style animated highlight */}
@@ -154,7 +184,7 @@ const AboutSection: React.FC = () => {
             <span className="text-2xl font-light text-site-dark">
               Não venda seu iPhone de graça por <span className="font-bold">motivo de saúde baixa</span>
             </span>
-            <div ref={highlightRef} className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue"></div>
+            <div ref={highlightRef} className="absolute -bottom-1 left-0 w-0 h-0.5 bg-doctor"></div>
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,9 +63,9 @@ export default {
 					muted: '#FFE5E7',
 				},
 				brand: {
-					blue: '#0071e3', // Updated blue color as requested
-					darkBlue: '#005bbf',
-					lightBlue: '#0086f0',
+					blue: '#E30B17', // Changed to Ferrari red
+					darkBlue: '#B20812',
+					lightBlue: '#FF1A25',
 				},
 				site: {
 					light: '#f5f5f7',    // Light background
