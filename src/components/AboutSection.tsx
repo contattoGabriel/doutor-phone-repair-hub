@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from 'react';
 import { BadgeCheckIcon, ShieldCheckIcon, ClockIcon, StarIcon } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -47,38 +46,32 @@ const feedbacks = [
   { 
     name: "Ana Silva", 
     comment: "Estava desesperada com a tela quebrada do meu iPhone. O atendimento foi excepcional, muito profissional e resolveram em apenas 2 horas! Preço justo e qualidade impecável. Super recomendo!",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
+    rating: 5
   },
   { 
     name: "Carlos Santos", 
     comment: "Meu Samsung estava com problema na bateria que não durava nem 3 horas. Os técnicos são muito competentes e atenciosos, explicaram todo o processo. Agora meu celular volta a durar o dia inteiro!",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+    rating: 5
   },
   { 
     name: "Maria Oliveira", 
     comment: "Serviço rápido e de qualidade excepcional! Pensava que teria que trocar meu iPhone por causa do problema no alto-falante, mas eles consertaram perfeitamente. Profissionalismo exemplar!",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+    rating: 5
   },
   { 
     name: "João Pereira", 
     comment: "Atendimento diferenciado! Meu celular caiu na água e achei que tinha perdido tudo. A equipe foi muito dedicada, conseguiram recuperar todos os meus dados e ainda deixaram o aparelho funcionando perfeitamente.",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+    rating: 5
   },
   { 
     name: "Fernanda Costa", 
     comment: "Quebrei a câmera do meu smartphone numa viagem importante. O atendimento foi pontual, equipe muito preparada e conseguiram resolver no mesmo dia. Qualidade das peças originais fez toda diferença!",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face"
+    rating: 5
   },
   { 
     name: "Roberto Lima", 
     comment: "Problema no carregador do iPhone estava me deixando louco. O diagnóstico foi preciso e a solução rápida. Técnicos realmente especializados, muito transparentes quanto aos custos. Excelente custo-benefício!",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+    rating: 5
   }
 ];
 
@@ -194,21 +187,13 @@ const AboutSection: React.FC = () => {
                   <div className="space-y-4 pr-4">
                     {feedbacks.map((feedback, index) => (
                       <div key={index} className="bg-site-light/60 p-4 rounded-lg border border-site-gray/10 hover:bg-white/50 transition-colors">
-                        <div className="flex items-start gap-3 mb-3">
-                          <Avatar className="w-12 h-12 shrink-0">
-                            <AvatarImage src={feedback.image} alt={feedback.name} />
-                            <AvatarFallback className="bg-doctor/10 text-doctor font-medium">
-                              {feedback.name.split(' ').map(n => n[0]).join('')}
-                            </AvatarFallback>
-                          </Avatar>
-                          <div className="flex-1">
-                            <div className="flex items-center gap-1 mb-1">
-                              {[...Array(feedback.rating)].map((_, i) => (
-                                <StarIcon key={i} className="h-4 w-4 fill-doctor text-doctor" />
-                              ))}
-                            </div>
-                            <p className="text-doctor font-medium text-sm">{feedback.name}</p>
+                        <div className="mb-3">
+                          <div className="flex items-center gap-1 mb-2">
+                            {[...Array(feedback.rating)].map((_, i) => (
+                              <StarIcon key={i} className="h-4 w-4 fill-doctor text-doctor" />
+                            ))}
                           </div>
+                          <p className="text-doctor font-medium text-sm">{feedback.name}</p>
                         </div>
                         <p className="text-site-dark/80 text-sm leading-relaxed">"{feedback.comment}"</p>
                       </div>
