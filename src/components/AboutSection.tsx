@@ -177,14 +177,14 @@ const AboutSection: React.FC = () => {
               </div>
             </div>
             
-            {/* Enhanced Feedbacks Section with Scroll */}
+            {/* Enhanced Feedbacks Section with Visible Scroll */}
             <div className="lg:col-span-1">
               <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-site-gray/20 p-6 shadow-lg">
                 <h3 className="text-xl font-bold text-site-dark mb-6 text-center">
                   Feedbacks dos <span className="text-doctor">Clientes</span>
                 </h3>
-                <ScrollArea className="h-96">
-                  <div className="space-y-4 pr-4">
+                <ScrollArea className="h-96 pr-4">
+                  <div className="space-y-4">
                     {feedbacks.map((feedback, index) => (
                       <div key={index} className="bg-site-light/60 p-4 rounded-lg border border-site-gray/10 hover:bg-white/50 transition-colors">
                         <div className="mb-3">
